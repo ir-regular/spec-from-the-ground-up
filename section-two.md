@@ -15,6 +15,7 @@ Spec provides `s/conform` as a means of annotating and destructuring your data:
           :number value
           :string (Float/parseFloat value))))))
 ```
+
 `s/conform` appears in various points...
 
 ###Collections
@@ -41,7 +42,7 @@ Usage:
 ```clj
 
 (s/def ::favourite-meal #{:shoes :chicken :homework})
-(s/def ::dog (s/keys :req [::name ::age ::breed ::color] :opt [::favourite-meal]))
+(s/def ::dog (s/keys :req [::name ::age ::breed ::colour] :opt [::favourite-meal]))
 ```
 A lot of clojure maps in the wild still use unqualified keywords - `s/keys`
 
@@ -114,7 +115,8 @@ In addition there is `s/tuple`, `s/cat` and `s/alt`
 What is special about `s/cat` is that conforming `s/cat` returns a map with the
 named positional elements:
 ```clj
-(s/conform ::reframe-event [:add-todo "write more specs"]) ;; => {:event-name :add-todo :arg "write more specs"}
+(s/conform ::reframe-event [:add-todo "write more specs"])
+;; => {:event-name :add-todo :arg "write more specs"}
 ```
 
 ### Exercises
